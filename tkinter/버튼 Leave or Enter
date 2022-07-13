@@ -1,0 +1,21 @@
+import tkinter as tk
+root = tk.Tk()
+
+def func():
+    label.config(text='Pushed')
+    
+def func_ev(ev):
+    label.config(text='Leave')
+    
+def func_ev1(ev):
+    label.config(text='Enter')
+    
+label = tk.Label(root,text='PushButton')
+label.pack()
+
+btn = tk.Button(root,text='Push',command=func)
+btn.pack()
+
+btn.bind('<Leave>',func_ev) # 커서가 버튼 위젯을 벗어날 때
+btn.bind('<Enter>',func_ev1) # 커서가 버튼 위젯 위에 존재할 때
+root.mainloop()
