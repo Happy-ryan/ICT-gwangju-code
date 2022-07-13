@@ -12,8 +12,8 @@ def func():
         label.config(text='Orange')
         bAct = True
         
-def func_event(ev):
-    label.config(text='Push Button')
+def func_event(ev): # 마우스가 버튼을 벗아났을 때 이벤트 함수
+    label.config(text='Push Button') # label 을 다시 push button 으로 config 해준다.
     
 label = tk.Label(root, text='Apple') # 초기 label = apple
 label.pack()
@@ -22,4 +22,4 @@ btn = tk.Button(root, text='Push!',command=func)
 btn.pack()
 
 # 마우스 커서가 버튼을 벗어났을 때의 이벤트 추가
-btn.bind('<Leave>',func_event)
+btn.bind('<Leave>',func_event) 
