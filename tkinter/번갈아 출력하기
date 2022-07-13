@@ -1,0 +1,25 @@
+import tkinter as tk
+root = tk.Tk()
+
+bAct = False # 초기 False 설정 > 이벤트 발생시 > else 이동하여 label을 orange로 config 하고 bAct = True 만들어준다.
+             # label 이 orange로 바뀐 후 다시 버튼을 누르는 이벤트가 발생 > bAct = True 이므로 if문으로 이동 > label = apple로 config 한다.
+def func():
+    global bAct
+    if bAct:
+        label.config(text='Apple')
+        bAct = False
+    else:
+        label.config(text='Orange')
+        bAct = True
+        
+def func_event(ev):
+    label.config(text='Push Button')
+    
+label = tk.Label(root, text='Apple') # 초기 label = apple
+label.pack()
+
+btn = tk.Button(root, text='Push!',command=func)
+btn.pack()
+
+# 마우스 커서가 버튼을 벗어났을 때의 이벤트 추가
+btn.bind('<Leave>',func_event)
