@@ -1,0 +1,13 @@
+import tkinter as tk
+root = tk.Tk()
+def func():
+    label.config(text='Pushed')
+def func_event_click(ev):
+    disp = str(ev.x)+'/'+str(ev.y)
+    label.config(text=disp)
+label = tk.Label(root, text ='P B')
+label.pack()
+btn = tk.Button(root, text='Push', command= func)
+btn.pack()
+btn.bind('<Button-1'>,func_event_click)
+root.mainloop() 
