@@ -1,0 +1,19 @@
+# 7. 부모 윈도우에서 지식 윈도우 생성하기
+# import tkinter as tk
+
+# def create_window():
+#     def act_child():
+#         lbl_child.config(text='Child Action')
+
+#     window = tk.Toplevel(root)
+#     lbl_child = tk.Label(window, text='결과표시창')
+#     lbl_child.pack()
+
+#     btn_child = tk.Button(window, text='New window Button',command=act_child)
+#     btn_child.pack()
+
+# root = tk.Tk()
+# btn_root = tk.Button(root,text='Creat new window',command=create_window)
+# btn_root.pack()
+
+# root.mainloop()
