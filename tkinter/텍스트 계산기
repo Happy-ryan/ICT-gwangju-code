@@ -1,0 +1,67 @@
+# 텍스트 계산기 만들기
+import tkinter as tk
+
+from setuptools import Command
+root = tk.Tk()
+gresult = 0
+gstr = ''
+# 텍스트 박스 생성 및 배치
+e1 = tk.Entry(root)
+e1.pack()
+e2 = tk.Entry(root)
+e2.pack()
+
+# 라디오버튼
+def Act1():
+    global gresult
+    gresult = 0
+    gresult += int(e1.get())
+    gresult += int(e2.get())
+def Act2():
+    global gresult
+    gresult = 0
+    gresult += int(e1.get())
+    gresult -= int(e2.get())
+def Act3():
+    global gresult
+    gresult = 0
+    gresult += int(e1.get())
+    gresult *= int(e2.get())
+def Act4():
+    global gresult
+    gresult = 0
+    if int(e2.get()) == 0:    
+        lbl.config(text='0으로 나눌 수 없습니다.')
+    else:
+        gresult += int(e1.get())
+        gresult /= int(e2.get())
+        gresult = '{0:0.2f}'.format(gresult)
+        
+rb1 = tk.Radiobutton(root, text='Button +',variable=1, value=1,indicatoron=0,command=Act1)
+rb1.pack()
+
+rb2 = tk.Radiobutton(root, text='Button -',variable=1, value=2,indicatoron=0,command=Act2)
+rb2.pack()
+
+rb3 = tk.Radiobutton(root, text='Button *',variable=1, value=3,indicatoron=0,command=Act3)
+rb3.pack()
+
+rb3 = tk.Radiobutton(root, text='Button /',variable=1, value=4,indicatoron=0,command=Act4)
+rb3.pack()
+
+
+# result 누르면 click 되면서 config하기
+def click():
+    lbl.config(text = gresult)
+
+
+# 결과 버튼
+btn = tk.Button(root,text='Result',command=click)
+btn.pack()
+
+# 결과라벨
+lbl = tk.Label(root,text='정답이 나옵니다.')
+lbl.pack()
+
+# 실행
+root.mainloop()
