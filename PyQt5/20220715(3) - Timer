@@ -1,0 +1,33 @@
+import sys
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import QTimer,QTime
+
+class MyWindow(QWidget):
+    ncnt = 0
+    def __init__(self):
+        super().__init__()
+        self.timer = QTimer(self)
+        self.timer.setInterval(1000)
+        self.timer.timeout.connect(self.timeout)
+        self.setWindowTitle('QTtimer')
+        self.setGeometry(100,100,600,280)
+        self.lbl = QLabel('Display',self)
+        self.timer.start()
+        btn1 = QPushButton('Stop Timer',self)
+        btn1.move(20,20)
+        btn1.clicked.connect(self.btn1_clicked)
+
+    def btn1_clicked(self):
+        self.timer.stop()
+
+    def timeout(self):
+        MyWindow.ncnt +=1
+        sender = self.sender
+        self.lbl.setText(str(MyWindow.ncnt))
+        self.timer.start()
+if __name__=='__main__':
+    app = QApplication(sys.argv)
+    myWindow = MyWindow()
+    myWindow.show()
+    sys.exit(app.exec_())
+    
