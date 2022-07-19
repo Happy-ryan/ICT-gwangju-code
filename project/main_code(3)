@@ -1,0 +1,512 @@
+      from tkinter import *
+from tkinter import messagebox
+############################################################
+def openFrame(frame): # 넘어가기, 다음문항 - 화면 전환 이벤트
+    frame.tkraise()
+
+def NoBeforeBtn(): # 이전문항 - frame3에서 이전 문항 없을 때 발생하는 이벤트
+        messagebox.askokcancel('알림','이전문항이 존재하지 않습니다.')
+
+def NextBtn(q,frame): # 다음문항 - 다음문항 버튼 클릭할 때 발생하는 이벤트
+    if q.get() == 0: # 응답하지 않았을 때 알림창
+        messagebox.askokcancel('알림','응답하지 않은 항목이 있습니다.')
+    else: # 다음 문항으로 넘어가도록 만들기
+        openFrame(frame)
+
+def SummitBtn(q,frame): # 제출하기버튼의 이벤트-q1~q12.get()값을 리스트에 넣고 mbti 결과 내는 함수
+        global mbti_list
+        global result_list
+        global result
+        if q.get() == 0:
+            messagebox.askokcancel('알림','응답하지 않은 항목이 있습니다.')
+        else:
+            for q in q_list:
+                mbti_list[q.get()] += 1
+            result_list = [i for i, x in enumerate(mbti_list) if x >= 2]
+            result = sum([x * 10**(3-i) for i, x in enumerate(result_list)])
+            openFrame(frame)
+            print(result_list)
+            print(result)
+
+def ResultBtn():
+    global result
+    if result == 1457: #INTJ-전략가
+        print('INTJ-전략가')
+    elif result ==1458: #INTP-논리술사
+        print('INTP-논리술사')
+    elif result ==2457: #ENTJ-통솔자
+        print('ENTJ-통솔자')
+    elif result ==2458: #ENTP-변론가
+        print('ENTP-변론가')
+    elif result ==1467: #INFJ-옹호자
+        print('INFJ-옹호자')
+    elif result ==1468: #INFP-중재자
+        print('INFP-중재자')
+    elif result ==2467: #ENFJ-선도자
+        print('ENFJ-선도자')
+    elif result ==2468: #ENFP-활동가
+        print('ENFP-활동가')
+    elif result ==1357: #ISTJ-현실주의자
+        print('ISTJ-현실주의자')
+    elif result ==1367: #ISFJ-수호자
+        print('ISFJ-수호자')
+    elif result ==2357: #ESTJ-경영자
+        print('ESTJ-경영자')
+    elif result ==2367: #ESFJ-집정관
+        print('ESFJ-집정관')
+    elif result ==1358: #ISTP-장인
+        print('ISTP-장인')
+    elif result ==1368: #ISFP-모험가
+        print('ISFP-모험가')
+    elif result ==2358: #ESTP-사업가
+        print('ESTP-사업가')
+    elif result ==2368: #ESFP-연예인
+        print('ESFP-연예인')
+############################################################
+window = Tk()
+window.title('M Bㅏ프 T I')
+window.geometry('503x710')
+############################################################
+img_click = PhotoImage(file='image/click.PNG') # frame1의 클릭하기버튼
+img_pass = PhotoImage(file='image/btn_pass.PNG') # frame2의 넘어가기버튼
+img_next = PhotoImage(file='image/btn_next.PNG') # 다음문항버튼
+img_next = img_next.subsample(2)
+img_before = PhotoImage(file='image/btn_before.PNG') # 이전문항버튼
+img_before = img_before.subsample(2)
+img_summit = PhotoImage(file='image/btn_summit.PNG') # 제출하기버튼
+img_summit = img_summit.subsample(3)
+img_result = PhotoImage(file='image/btn_result.PNG') # 결과보기버튼
+# 다시하기 버튼 img_restart = PhotoImage(file='image/.png) 
+# 종료하기 버튼 command=window.quit
+############################################################
+# 시작화면: frame1
+
+# frame1 사진 호출
+img_startpage = PhotoImage(file='image/startpage.PNG')
+# fram1 생성 및 위치 지정 및 캔버스 생성
+frame1 = Frame(window)
+frame1.place(x=0,y=0) # 프레임 위치 (x=0,y=0) 통일
+
+canvas1 = Canvas(frame1,height=710,width=503,bg='white')
+canvas1.pack()
+canvas1.create_image(250,335,image=img_startpage)
+
+# 시작하기 버튼
+btn_start = Button(frame1, image=img_click,borderwidth=1,command= lambda: [openFrame(frame2)])
+btn_start.place(x=120,y=480)
+############################################################
+# 설명화면 : frame2
+
+# frame2 사진 호출
+img_explainpage = PhotoImage(file='image/explainpage.PNG')
+
+# fram2 생성 및 위치 지정 및 캔버스 생성
+frame2 = Frame(window)
+frame2.place(x=0,y=0) # 프레임 위치 (x=0,y=0) 통일
+
+canvas2 = Canvas(frame2,height=710,width=503,bg='white')
+canvas2.pack()
+canvas2.create_image(250,335,image=img_explainpage)
+
+# 넘아가기 버튼
+btn_pass = Button(frame2, image=img_pass,borderwidth=1, command= lambda: [openFrame(frame3)])
+btn_pass.place(x=135,y=480)
+############################################################문항1
+# 문제화면1 : frame3 - q1 (이전문항 - 메세지창 : 이전 문항이 없습니다.)
+# frame3 사진 호출
+img_q1 = PhotoImage(file='image/q1.PNG') # 배경 - canvas
+img_q1_1 = PhotoImage(file='image/q1_1.PNG')
+img_q1_1 = img_q1_1.subsample(1)
+img_q1_2 = PhotoImage(file='image/q1_2.PNG')
+img_q1_2 = img_q1_2.subsample(1)
+
+# fram3 생성 및 위치 지정
+frame3 = Frame(window)
+frame3.place(x=0,y=0) # 프레임 위치 (x=0,y=0) 통일
+
+canvas3 = Canvas(frame3,height=710,width=503,bg='white')
+canvas3.pack()
+canvas3.create_image(250,335,image=img_q1)
+
+# 문항1-체크하는 라디오 버튼 생성
+q1 = IntVar()
+rd1 = Radiobutton(frame3,image=img_q1_1,variable=q1,value=2) # E성향 - value : 2
+rd1.place(x=40,y=300)
+rd2 = Radiobutton(frame3,image=img_q1_2,variable=q1,value=1) # I성향 - value : 1
+rd2.place(x=40,y=400)
+
+# 다음문항 버튼
+btn_next = Button(frame3, image=img_next,borderwidth=1,command= lambda: [NextBtn(q1,frame4)])
+btn_next.place(x=270,y=530)
+
+# 이전문항 버튼
+btn_before = Button(frame3, image=img_before,borderwidth=1,command= NoBeforeBtn)
+btn_before.place(x=100,y=530)
+############################################################문항2
+# 문제화면2 : frame4 - q2 
+# frame4 사진 호출
+img_q2 = PhotoImage(file='image/q2.PNG') # 배경 - canvas
+img_q2_1 = PhotoImage(file='image/q2_1.PNG')
+img_q2_1 = img_q2_1.subsample(1)
+img_q2_2 = PhotoImage(file='image/q2_2.PNG')
+img_q2_2 = img_q2_2.subsample(1)
+
+# fram4 생성 및 위치 지정
+frame4 = Frame(window)
+frame4.place(x=0,y=0) # 프레임 위치 (x=0,y=0) 통일
+
+canvas4 = Canvas(frame4,height=710,width=503,bg='white')
+canvas4.pack()
+canvas4.create_image(250,335,image=img_q2)
+
+# 문항2-체크하는 라디오 버튼 생성
+q2 = IntVar()
+rd3 = Radiobutton(frame4,image=img_q2_1,variable=q2,value=7) # J성향 - value : 7
+rd3.place(x=40,y=300)
+rd4 = Radiobutton(frame4,image=img_q2_2,variable=q2,value=8) # P성향 - value : 8
+rd4.place(x=40,y=400)
+
+# 다음문항 버튼
+btn_next = Button(frame4, image=img_next,borderwidth=1,command= lambda: [NextBtn(q2,frame5)])
+btn_next.place(x=270,y=530)
+
+# 이전문항 버튼
+btn_before = Button(frame4, image=img_before,borderwidth=1,command= lambda:[openFrame(frame3)])
+btn_before.place(x=100,y=530)
+############################################################문항3
+# 문제화면3 : frame5 - q3
+# frame5 사진 호출
+img_q3 = PhotoImage(file='image/q3.PNG') # 배경 - canvas
+img_q3_1 = PhotoImage(file='image/q3_1.PNG')
+img_q3_1 = img_q3_1.subsample(1)
+img_q3_2 = PhotoImage(file='image/q3_2.PNG')
+img_q3_2 = img_q3_2.subsample(1)
+
+# fram5 생성 및 위치 지정
+frame5 = Frame(window)
+frame5.place(x=0,y=0) # 프레임 위치 (x=0,y=0) 통일
+
+canvas5 = Canvas(frame5,height=710,width=503,bg='white')
+canvas5.pack()
+canvas5.create_image(250,335,image=img_q3)
+
+# 문항3-체크하는 라디오 버튼 생성
+q3 = IntVar()
+rd5 = Radiobutton(frame5,image=img_q3_1,variable=q3,value=5) # T성향 - value : 5
+rd5.place(x=40,y=300)
+rd6 = Radiobutton(frame5,image=img_q3_2,variable=q3,value=6) # F성향 - value : 6
+rd6.place(x=40,y=400)
+
+# 다음문항 버튼
+btn_next = Button(frame5, image=img_next,borderwidth=1,command= lambda: [NextBtn(q3,frame6)])
+btn_next.place(x=270,y=530)
+
+# 이전문항 버튼
+btn_before = Button(frame5, image=img_before,borderwidth=1,command= lambda:[openFrame(frame4)])
+btn_before.place(x=100,y=530)
+############################################################문항4
+# 문제화면4 : frame6 - q4
+# frame6 사진 호출
+img_q4 = PhotoImage(file='image/q4.PNG') # 배경 - canvas
+img_q4_1 = PhotoImage(file='image/q4_1.PNG')
+img_q4_1 = img_q4_1.subsample(1)
+img_q4_2 = PhotoImage(file='image/q4_2.PNG')
+img_q4_2 = img_q4_2.subsample(1)
+
+# fram6 생성 및 위치 지정
+frame6 = Frame(window)
+frame6.place(x=0,y=0) # 프레임 위치 (x=0,y=0) 통일
+
+canvas6 = Canvas(frame6,height=710,width=503,bg='white')
+canvas6.pack()
+canvas6.create_image(250,335,image=img_q4)
+
+# 문항4-체크하는 라디오 버튼 생성
+q4 = IntVar()
+rd7 = Radiobutton(frame6,image=img_q4_1,variable=q4,value=4) # N성향 - value : 4
+rd7.place(x=40,y=300)
+rd8 = Radiobutton(frame6,image=img_q4_2,variable=q4,value=3) # S성향 - value : 3
+rd8.place(x=40,y=400)
+
+# 다음문항 버튼
+btn_next = Button(frame6, image=img_next,borderwidth=1,command= lambda: [NextBtn(q4,frame7)])
+btn_next.place(x=270,y=530)
+
+# 이전문항 버튼
+btn_before = Button(frame6, image=img_before,borderwidth=1,command= lambda:[openFrame(frame5)])
+btn_before.place(x=100,y=530)
+############################################################문항5
+# 문제화면5 : frame7 - q5
+# frame7 사진 호출
+img_q5 = PhotoImage(file='image/q5.PNG') # 배경 - canvas
+img_q5_1 = PhotoImage(file='image/q5_1.PNG')
+img_q5_1 = img_q5_1.subsample(1)
+img_q5_2 = PhotoImage(file='image/q5_2.PNG')
+img_q5_2 = img_q5_2.subsample(1)
+
+# fram6 생성 및 위치 지정
+frame7 = Frame(window)
+frame7.place(x=0,y=0) # 프레임 위치 (x=0,y=0) 통일
+
+canvas7 = Canvas(frame7,height=710,width=503,bg='white')
+canvas7.pack()
+canvas7.create_image(250,335,image=img_q5)
+
+# 문항5-체크하는 라디오 버튼 생성
+q5 = IntVar()
+rd9 = Radiobutton(frame7,image=img_q5_1,variable=q5,value=8) # P성향 - value : 8
+rd9.place(x=40,y=300)
+rd10 = Radiobutton(frame7,image=img_q5_2,variable=q5,value=7) # J성향 - value : 7
+rd10.place(x=40,y=400)
+
+# 다음문항 버튼
+btn_next = Button(frame7, image=img_next,borderwidth=1,command= lambda: [NextBtn(q5,frame8)])
+btn_next.place(x=270,y=530)
+
+# 이전문항 버튼
+btn_before = Button(frame7, image=img_before,borderwidth=1,command= lambda:[openFrame(frame6)])
+btn_before.place(x=100,y=530)
+############################################################문항6
+# 문제화면6 : frame8 - q6
+# frame8 사진 호출
+img_q6 = PhotoImage(file='image/q6.PNG') # 배경 - canvas
+img_q6_1 = PhotoImage(file='image/q6_1.PNG')
+img_q6_1 = img_q6_1.subsample(1)
+img_q6_2 = PhotoImage(file='image/q6_2.PNG')
+img_q6_2 = img_q6_2.subsample(1)
+
+# fram6 생성 및 위치 지정
+frame8 = Frame(window)
+frame8.place(x=0,y=0) # 프레임 위치 (x=0,y=0) 통일
+
+canvas8 = Canvas(frame8,height=710,width=503,bg='white')
+canvas8.pack()
+canvas8.create_image(250,335,image=img_q6)
+
+# 문항6-체크하는 라디오 버튼 생성
+q6 = IntVar()
+rd11 = Radiobutton(frame8,image=img_q6_1,variable=q6,value=1) # I성향 - value : 1
+rd11.place(x=40,y=300)
+rd12 = Radiobutton(frame8,image=img_q6_2,variable=q6,value=2) # E성향 - value : 2
+rd12.place(x=40,y=400)
+
+# 다음문항 버튼
+btn_next = Button(frame8, image=img_next,borderwidth=1,command= lambda: [NextBtn(q6,frame9)])
+btn_next.place(x=270,y=530)
+
+# 이전문항 버튼
+btn_before = Button(frame8, image=img_before,borderwidth=1,command= lambda:[openFrame(frame7)])
+btn_before.place(x=100,y=530)
+############################################################문항7
+# 문제화면7 : frame9 - q7
+# frame9 사진 호출
+img_q7 = PhotoImage(file='image/q7.PNG') # 배경 - canvas
+img_q7_1 = PhotoImage(file='image/q7_1.PNG')
+img_q7_1 = img_q7_1.subsample(1)
+img_q7_2 = PhotoImage(file='image/q7_2.PNG')
+img_q7_2 = img_q7_2.subsample(1)
+
+# fram9 생성 및 위치 지정
+frame9 = Frame(window)
+frame9.place(x=0,y=0) # 프레임 위치 (x=0,y=0) 통일
+
+canvas9 = Canvas(frame9,height=710,width=503,bg='white')
+canvas9.pack()
+canvas9.create_image(250,335,image=img_q7)
+
+# 문항7-체크하는 라디오 버튼 생성
+q7 = IntVar()
+rd13 = Radiobutton(frame9,image=img_q7_1,variable=q7,value=3) # S성향 - value : 3
+rd13.place(x=40,y=300)
+rd14 = Radiobutton(frame9,image=img_q7_2,variable=q7,value=4) # N성향 - value : 4
+rd14.place(x=40,y=400)
+
+# 다음문항 버튼
+btn_next = Button(frame9, image=img_next,borderwidth=1,command= lambda: [NextBtn(q7,frame10)])
+btn_next.place(x=270,y=530)
+
+# 이전문항 버튼
+btn_before = Button(frame9, image=img_before,borderwidth=1,command= lambda:[openFrame(frame8)])
+btn_before.place(x=100,y=530)
+############################################################문항8
+# 문제화면8 : frame10 - q8
+# frame10 사진 호출
+img_q8 = PhotoImage(file='image/q8.PNG') # 배경 - canvas
+img_q8_1 = PhotoImage(file='image/q8_1.PNG')
+img_q8_1 = img_q8_1.subsample(1)
+img_q8_2 = PhotoImage(file='image/q8_2.PNG')
+img_q8_2 = img_q8_2.subsample(1)
+
+# fram10 생성 및 위치 지정
+frame10 = Frame(window)
+frame10.place(x=0,y=0) # 프레임 위치 (x=0,y=0) 통일
+
+canvas10 = Canvas(frame10,height=710,width=503,bg='white')
+canvas10.pack()
+canvas10.create_image(250,335,image=img_q8)
+
+# 문항8-체크하는 라디오 버튼 생성
+q8 = IntVar()
+rd15 = Radiobutton(frame10,image=img_q8_1,variable=q8,value=6) # F성향 - value : 6
+rd15.place(x=40,y=300)
+rd16 = Radiobutton(frame10,image=img_q8_2,variable=q8,value=5) # T성향 - value : 5
+rd16.place(x=40,y=400)
+
+# 다음문항 버튼
+btn_next = Button(frame10, image=img_next,borderwidth=1,command= lambda: [NextBtn(q8,frame11)])
+btn_next.place(x=270,y=530)
+
+# 이전문항 버튼
+btn_before = Button(frame10, image=img_before,borderwidth=1,command= lambda:[openFrame(frame9)])
+btn_before.place(x=100,y=530)
+############################################################문항9
+# 문제화면9 : frame11 - q9
+# frame11 사진 호출
+img_q9 = PhotoImage(file='image/q9.PNG') # 배경 - canvas
+img_q9_1 = PhotoImage(file='image/q9_1.PNG')
+img_q9_1 = img_q9_1.subsample(1)
+img_q9_2 = PhotoImage(file='image/q9_2.PNG')
+img_q9_2 = img_q9_2.subsample(1)
+
+# fram10 생성 및 위치 지정
+frame11 = Frame(window)
+frame11.place(x=0,y=0) # 프레임 위치 (x=0,y=0) 통일
+
+canvas11 = Canvas(frame11,height=710,width=503,bg='white')
+canvas11.pack()
+canvas11.create_image(250,335,image=img_q9)
+
+# 문항9-체크하는 라디오 버튼 생성
+q9 = IntVar()
+rd17 = Radiobutton(frame11,image=img_q9_1,variable=q9,value=7) # J성향 - value : 7
+rd17.place(x=40,y=300)
+rd18 = Radiobutton(frame11,image=img_q9_2,variable=q9,value=8) # P성향 - value : 8
+rd18.place(x=40,y=430) # 좀 더 떨으뜨리기.
+
+# 다음문항 버튼
+btn_next = Button(frame11, image=img_next,borderwidth=1,command= lambda: [NextBtn(q9,frame12)])
+btn_next.place(x=270,y=530)
+
+# 이전문항 버튼
+btn_before = Button(frame11, image=img_before,borderwidth=1,command= lambda:[openFrame(frame10)])
+btn_before.place(x=100,y=530)
+############################################################문항10
+# 문제화면10 : frame12 - q10
+# frame12 사진 호출
+img_q10 = PhotoImage(file='image/q10.PNG') # 배경 - canvas
+img_q10_1 = PhotoImage(file='image/q10_1.PNG')
+img_q10_1 = img_q10_1.subsample(1)
+img_q10_2 = PhotoImage(file='image/q10_2.PNG')
+img_q10_2 = img_q10_2.subsample(1)
+
+# fram10 생성 및 위치 지정
+frame12 = Frame(window)
+frame12.place(x=0,y=0) # 프레임 위치 (x=0,y=0) 통일
+
+canvas12 = Canvas(frame12,height=710,width=503,bg='white')
+canvas12.pack()
+canvas12.create_image(250,335,image=img_q10)
+
+# 문항10-체크하는 라디오 버튼 생성
+q10 = IntVar()
+rd19 = Radiobutton(frame12,image=img_q10_1,variable=q10,value=6) # F성향 - value : 6
+rd19.place(x=40,y=300)
+rd20 = Radiobutton(frame12,image=img_q10_2,variable=q10,value=5) # T성향 - value : 5
+rd20.place(x=40,y=400) # 좀 더 떨으뜨리기.
+
+# 다음문항 버튼
+btn_next = Button(frame12, image=img_next,borderwidth=1,command= lambda: [NextBtn(q10,frame13)])
+btn_next.place(x=270,y=530)
+
+# 이전문항 버튼
+btn_before = Button(frame12, image=img_before,borderwidth=1,command= lambda:[openFrame(frame11)])
+btn_before.place(x=100,y=530)
+############################################################문항11
+# 문제화면11 : frame13 - q11
+# frame13 사진 호출
+img_q11 = PhotoImage(file='image/q11.PNG') # 배경 - canvas
+img_q11_1 = PhotoImage(file='image/q11_1.PNG')
+img_q11_1 = img_q11_1.subsample(1)
+img_q11_2 = PhotoImage(file='image/q11_2.PNG')
+img_q11_2 = img_q11_2.subsample(1)
+
+# fram10 생성 및 위치 지정
+frame13 = Frame(window)
+frame13.place(x=0,y=0) # 프레임 위치 (x=0,y=0) 통일
+
+canvas13 = Canvas(frame13,height=710,width=503,bg='white')
+canvas13.pack()
+canvas13.create_image(250,335,image=img_q11)
+
+# 문항11-체크하는 라디오 버튼 생성
+q11 = IntVar()
+rd21 = Radiobutton(frame13,image=img_q11_1,variable=q11,value=4) # N성향 - value : 4
+rd21.place(x=40,y=300)
+rd22 = Radiobutton(frame13,image=img_q11_2,variable=q11,value=3) # S성향 - value : 3
+rd22.place(x=40,y=400)
+
+# 다음문항 버튼
+btn_next = Button(frame13, image=img_next,borderwidth=1,command= lambda: [NextBtn(q11,frame14)])
+btn_next.place(x=270,y=530)
+
+# 이전문항 버튼
+btn_before = Button(frame13, image=img_before,borderwidth=1,command= lambda:[openFrame(frame12)])
+btn_before.place(x=100,y=530)
+############################################################문항12
+# 문제화면12 : frame14 - q12
+# frame14 사진 호출
+img_q12 = PhotoImage(file='image/q12.PNG') # 배경 - canvas
+img_q12_1 = PhotoImage(file='image/q12_1.PNG')
+img_q12_1 = img_q12_1.subsample(1)
+img_q12_2 = PhotoImage(file='image/q12_2.PNG')
+img_q12_2 = img_q12_2.subsample(1)
+
+# fram14 생성 및 위치 지정
+frame14 = Frame(window)
+frame14.place(x=0,y=0) # 프레임 위치 (x=0,y=0) 통일
+
+canvas14 = Canvas(frame14,height=710,width=503,bg='white')
+canvas14.pack()
+canvas14.create_image(250,335,image=img_q12)
+
+# 문항12-체크하는 라디오 버튼 생성
+q12 = IntVar()
+rd23 = Radiobutton(frame14,image=img_q12_1,variable=q12,value=2) # E성향 - value : 2
+rd23.place(x=40,y=300)
+rd24 = Radiobutton(frame14,image=img_q12_2,variable=q12,value=1) # I성향 - value : 1
+rd24.place(x=40,y=400)
+
+# 제출하기 버튼
+btn_summit = Button(frame14, image=img_summit,borderwidth=1,\
+                    command= lambda:[SummitBtn(q12,frame15)])
+btn_summit.place(x=270,y=480)
+
+# 이전문항 버튼
+btn_before = Button(frame14, image=img_before,borderwidth=1,command= lambda:[openFrame(frame13)])
+btn_before.place(x=100,y=530)
+############################################################결과보기
+# 결과화면 : frame15
+# frame15 사진호출
+img_resultpage = PhotoImage(file='image/resultpage.PNG') # 배경 - canvas
+
+# fram15 생성 및 위치 지정
+
+frame15 = Frame(window)
+frame15.place(x=0,y=0) # 프레임 위치 (x=0,y=0) 통일
+
+canvas15 = Canvas(frame15,height=710,width=503,bg='white')
+canvas15.pack()
+canvas15.create_image(250,335,image=img_resultpage)
+
+# 결과보기 버튼
+btn_result = Button(frame15, image= img_result,borderwidth=1,command= ResultBtn)
+btn_result.place(x=145,y=285)
+#############################################################
+q_list = [q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12]
+mbti_list = [0,0,0,0,0,0,0,0,0] 
+result_list=[]
+#인덱스 기준: 1-I / 2-E / 3-S / 4-N / 5-T / 6-F / 7-J / 8-P
+#############################################################
+
+openFrame(frame1)
+window.mainloop()
