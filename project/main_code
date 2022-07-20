@@ -90,6 +90,7 @@ def web(web):
 window = Tk()
 window.title('M Bㅏ프 T I')
 window.geometry('503x710')
+window.resizable(False,False)
 ############################################################
 img_click = PhotoImage(file='image/click.PNG') # frame1의 클릭하기버튼
 img_pass = PhotoImage(file='image/btn_pass.PNG') # frame2의 넘어가기버튼
