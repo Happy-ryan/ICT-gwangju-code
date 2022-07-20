@@ -616,7 +616,7 @@ btn_end.place(x=320,y=532)
 # 링크 연결 버튼 및 종료
 btn_web = Button(frame18,image=img_web,borderwidth=1,\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-entj'),close()])
-btn_web.place(x=230,y=390)
+btn_web.place(x=242,y=390)
 ############################################################# 2458: #ENTP-변론가/frame19
 # 최종 결과화면 : frame19
 # fram19 생성 및 위치 지정 및 캔버스 생성
@@ -638,7 +638,7 @@ btn_end.place(x=320,y=532)
 # 링크 연결 버튼 및 종료
 btn_web = Button(frame19,image=img_web,borderwidth=1,\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-entp'),close()])
-btn_web.place(x=230,y=390)
+btn_web.place(x=242,y=363)
 ############################################################# 1467: #INFJ-옹호자/frame20
 # 최종 결과화면 : frame20
 # fram20 생성 및 위치 지정 및 캔버스 생성
@@ -660,7 +660,7 @@ btn_end.place(x=320,y=532)
 # 링크 연결 버튼 및 종료
 btn_web = Button(frame20,image=img_web,borderwidth=1,\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-infj'),close()])
-btn_web.place(x=230,y=390)
+btn_web.place(x=242,y=390)
 #############################################################1468: #INFP-중재자/frame21
 # 최종 결과화면 : frame21
 # fram21 생성 및 위치 지정 및 캔버스 생성
@@ -726,7 +726,7 @@ btn_end.place(x=320,y=532)
 # 링크 연결 버튼 및 종료
 btn_web = Button(frame23,image=img_web,borderwidth=1,\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-enfp'),close()])
-btn_web.place(x=230,y=390)
+btn_web.place(x=242,y=350)
 #############################################################1357: #ISTJ-현실주의자/frame24
 # 최종 결과화면 : frame24
 # fram24 생성 및 위치 지정 및 캔버스 생성
@@ -748,7 +748,7 @@ btn_end.place(x=320,y=532)
 # 링크 연결 버튼 및 종료
 btn_web = Button(frame24,image=img_web,borderwidth=1,\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-istj'),close()])
-btn_web.place(x=230,y=390)
+btn_web.place(x=242,y=385)
 #############################################################1367: #ISFJ-수호자/frame25
 # 최종 결과화면 : frame25
 # fram25 생성 및 위치 지정 및 캔버스 생성
@@ -770,7 +770,7 @@ btn_end.place(x=320,y=532)
 # 링크 연결 버튼 및 종료
 btn_web = Button(frame25,image=img_web,borderwidth=1,\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-isfj'),close()])
-btn_web.place(x=230,y=390)
+btn_web.place(x=242,y=380)
 #############################################################2357: #ESTJ-경영자/frame26
 # 최종 결과화면 : frame26
 # fram26 생성 및 위치 지정 및 캔버스 생성
@@ -792,7 +792,7 @@ btn_end.place(x=320,y=532)
 # 링크 연결 버튼 및 종료
 btn_web = Button(frame26,image=img_web,borderwidth=1,\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-estj'),close()])
-btn_web.place(x=230,y=390)
+btn_web.place(x=242,y=380)
 #############################################################2367: #ESFJ-집정관/frame27
 # 최종 결과화면 : frame27
 # fram27 생성 및 위치 지정 및 캔버스 생성
@@ -814,7 +814,7 @@ btn_end.place(x=320,y=532)
 # 링크 연결 버튼 및 종료
 btn_web = Button(frame27,image=img_web,borderwidth=1,\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-esfj'),close()])
-btn_web.place(x=230,y=390)
+btn_web.place(x=242,y=340)
 #############################################################1358: #ISTP-장인/frame28
 # 최종 결과화면 : frame28
 # fram28 생성 및 위치 지정 및 캔버스 생성
@@ -836,7 +836,7 @@ btn_end.place(x=320,y=532)
 # 링크 연결 버튼 및 종료
 btn_web = Button(frame28,image=img_web,borderwidth=1,\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-istp'),close()])
-btn_web.place(x=230,y=390)
+btn_web.place(x=239,y=375)
 #############################################################1368: #ISFP-모험가/frame29
 # 최종 결과화면 : frame29
 # fram29 생성 및 위치 지정 및 캔버스 생성
@@ -858,7 +858,7 @@ btn_end.place(x=320,y=532)
 # 링크 연결 버튼 및 종료
 btn_web = Button(frame29,image=img_web,borderwidth=1,\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-isfp'),close()])
-btn_web.place(x=230,y=390)
+btn_web.place(x=242,y=363)
 #############################################################2358: #ESTP-사업가/frame30
 # 최종 결과화면 : frame30
 # fram30 생성 및 위치 지정 및 캔버스 생성
@@ -880,7 +880,7 @@ btn_end.place(x=320,y=532)
 # 링크 연결 버튼 및 종료
 btn_web = Button(frame30,image=img_web,borderwidth=1,\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-estp'),close()])
-btn_web.place(x=230,y=390)
+btn_web.place(x=238,y=375)
 #############################################################
 # 최종 결과화면 : frame31
 # fram31 생성 및 위치 지정 및 캔버스 생성
@@ -902,7 +902,7 @@ btn_end.place(x=320,y=532)
 # 링크 연결 버튼 및 종료
 btn_web = Button(frame31,image=img_web,borderwidth=1,\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-esfp'),close()])
-btn_web.place(x=230,y=390)
+btn_web.place(x=239,y=340)
 #############################################################
 openFrame(frame1)
 window.mainloop()
