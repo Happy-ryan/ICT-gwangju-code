@@ -14,7 +14,7 @@ def NextBtn(q,frame): # 다음문항 - 다음문항 버튼 클릭할 때 발생�
     else: # 다음 문항으로 넘어가도록 만들기
         OpenFrame(frame)
 
-def SummitBtn(q,frame): # 제출하기버튼의 이벤트-q1~q12.get()값을 리스트에 넣고 mbti 결과 내는 함수
+def SubmmitBtn(q,frame): # 제출하기버튼의 이벤트-q1~q12.get()값을 리스트에 넣고 mbti 결과 내는 함수
         global mbti_list
         global result_list
         global result
@@ -98,8 +98,8 @@ img_next = PhotoImage(file='image/btn_next.PNG') # 다음문항버튼
 img_next = img_next.subsample(2)
 img_before = PhotoImage(file='image/btn_before.PNG') # 이전문항버튼
 img_before = img_before.subsample(2)
-img_summit = PhotoImage(file='image/btn_summit.PNG') # 제출하기버튼
-img_summit = img_summit.subsample(3)
+img_submmit = PhotoImage(file='image/btn_submmit.PNG') # 제출하기버튼
+img_submmit = img_submmit.subsample(3)
 img_result = PhotoImage(file='image/btn_result.PNG') # 결과보기버튼
 img_restart = PhotoImage(file='image/btn_restart.PNG') # 다시하기 버튼
 img_restart = img_restart.subsample(2)
@@ -523,9 +523,9 @@ rd24 = Radiobutton(frame14,image=img_q12_2,variable=q12,value=1,indicatoron=Fals
 rd24.place(x=46,y=400)
 
 # 제출하기 버튼
-btn_summit = Button(frame14, image=img_summit,borderwidth=1,overrelief='solid',\
-                    command= lambda:[SummitBtn(q12,frame15)])
-btn_summit.place(x=270,y=480)
+btn_submmit = Button(frame14, image=img_submmit,borderwidth=1,overrelief='solid',\
+                    command= lambda:[SubmmitBtn(q12,frame15)])
+btn_submmit.place(x=270,y=480)
 
 # 이전문항 버튼
 btn_before = Button(frame14, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[OpenFrame(frame13)])
