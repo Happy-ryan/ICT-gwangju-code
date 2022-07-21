@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 import webbrowser
 ############################################################
-def openFrame(frame): # 넘어가기, 다음문항 - 화면 전환 이벤트
+def OpenFrame(frame): # 넘어가기, 다음문항 - 화면 전환 이벤트
     frame.tkraise()
 
 def NoBeforeBtn(): # 이전문항 - frame3에서 이전 문항 없을 때 발생하는 이벤트
@@ -12,7 +12,7 @@ def NextBtn(q,frame): # 다음문항 - 다음문항 버튼 클릭할 때 발생�
     if q.get() == 0: # 응답하지 않았을 때 알림창
         messagebox.askokcancel('알림','응답하지 않은 항목이 있습니다.')
     else: # 다음 문항으로 넘어가도록 만들기
-        openFrame(frame)
+        OpenFrame(frame)
 
 def SummitBtn(q,frame): # 제출하기버튼의 이벤트-q1~q12.get()값을 리스트에 넣고 mbti 결과 내는 함수
         global mbti_list
@@ -25,7 +25,7 @@ def SummitBtn(q,frame): # 제출하기버튼의 이벤트-q1~q12.get()값을 리
                 mbti_list[q.get()] += 1
             result_list = [i for i, x in enumerate(mbti_list) if x >= 2]
             result = sum([x * 10**(3-i) for i, x in enumerate(result_list)])
-            openFrame(frame)
+            OpenFrame(frame)
             print(mbti_list)
             print(result_list)
             print(result)
@@ -34,52 +34,52 @@ def ResultBtn():
     global result
     if result == 1457: #INTJ-전략가/frame16
         print('INTJ-전략가')
-        openFrame(frame16)
+        OpenFrame(frame16)
     elif result ==1458: #INTP-논리술사/frame17
         print('INTP-논리술사')
-        openFrame(frame17)
+        OpenFrame(frame17)
     elif result ==2457: #ENTJ-통솔자/fram18
         print('ENTJ-통솔자')
-        openFrame(frame18)
+        OpenFrame(frame18)
     elif result ==2458: #ENTP-변론가/frame19
         print('ENTP-변론가')
-        openFrame(frame19)
+        OpenFrame(frame19)
     elif result ==1467: #INFJ-옹호자/frame20
         print('INFJ-옹호자')
-        openFrame(frame20)
+        OpenFrame(frame20)
     elif result ==1468: #INFP-중재자/frame21
         print('INFP-중재자')
-        openFrame(frame21)
+        OpenFrame(frame21)
     elif result ==2467: #ENFJ-선도자/frame22
         print('ENFJ-선도자')
-        openFrame(frame22)
+        OpenFrame(frame22)
     elif result ==2468: #ENFP-활동가/frame23
         print('ENFP-활동가')
-        openFrame(frame23)
+        OpenFrame(frame23)
     elif result ==1357: #ISTJ-현실주의자/frame24
         print('ISTJ-현실주의자')
-        openFrame(frame24)
+        OpenFrame(frame24)
     elif result ==1367: #ISFJ-수호자/frame25
         print('ISFJ-수호자')
-        openFrame(frame25)
+        OpenFrame(frame25)
     elif result ==2357: #ESTJ-경영자/frame26
         print('ESTJ-경영자')
-        openFrame(frame26)
+        OpenFrame(frame26)
     elif result ==2367: #ESFJ-집정관/frame27
         print('ESFJ-집정관')
-        openFrame(frame27)
+        OpenFrame(frame27)
     elif result ==1358: #ISTP-장인/frame28
         print('ISTP-장인')
-        openFrame(frame28)
+        OpenFrame(frame28)
     elif result ==1368: #ISFP-모험가/frame29
         print('ISFP-모험가')
-        openFrame(frame29)
+        OpenFrame(frame29)
     elif result ==2358: #ESTP-사업가/frame30
         print('ESTP-사업가')
-        openFrame(frame30)
+        OpenFrame(frame30)
     elif result ==2368: #ESFP-연예인/frame31
         print('ESFP-연예인')
-        openFrame(frame31)
+        OpenFrame(frame31)
 # 종료하기
 def close():
     window.destroy()
@@ -88,7 +88,7 @@ def web(web):
     webbrowser.open(web)
 ############################################################
 window = Tk()
-window.title('M Bㅏ프 T I')
+window.title('H는 묵음이야 ~ M Bㅏ프 T I')
 window.geometry('503x710')
 window.resizable(False,False)
 ############################################################
@@ -138,7 +138,7 @@ canvas1.pack()
 canvas1.create_image(250,335,image=img_startpage)
 
 # 시작하기 버튼
-btn_start = Button(frame1, image=img_click,borderwidth=1,overrelief='solid',command= lambda: [openFrame(frame2)])
+btn_start = Button(frame1, image=img_click,borderwidth=1,overrelief='solid',command= lambda: [OpenFrame(frame2)])
 btn_start.place(x=120,y=480)
 ############################################################
 # 설명화면 : frame2
@@ -155,7 +155,7 @@ canvas2.pack()
 canvas2.create_image(250,335,image=img_explainpage)
 
 # 넘아가기 버튼
-btn_pass = Button(frame2, image=img_pass,borderwidth=1,overrelief='solid',command= lambda: [openFrame(frame3)])
+btn_pass = Button(frame2, image=img_pass,borderwidth=1,overrelief='solid',command= lambda: [OpenFrame(frame3)])
 btn_pass.place(x=135,y=480)
 ############################################################문항1
 # 문제화면1 : frame3 - q1 (이전문항 - 메세지창 : 이전 문항이 없습니다.)
@@ -217,7 +217,7 @@ btn_next = Button(frame4, image=img_next,borderwidth=1,overrelief='solid',comman
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame4, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame3)])
+btn_before = Button(frame4, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[OpenFrame(frame3)])
 btn_before.place(x=100,y=530)
 ############################################################문항3
 # 문제화면3 : frame5 - q3
@@ -248,7 +248,7 @@ btn_next = Button(frame5, image=img_next,borderwidth=1,overrelief='solid',comman
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame5, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame4)])
+btn_before = Button(frame5, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[OpenFrame(frame4)])
 btn_before.place(x=100,y=530)
 ############################################################문항4
 # 문제화면4 : frame6 - q4
@@ -279,7 +279,7 @@ btn_next = Button(frame6, image=img_next,borderwidth=1,overrelief='solid',comman
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame6, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame5)])
+btn_before = Button(frame6, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[OpenFrame(frame5)])
 btn_before.place(x=100,y=530)
 ############################################################문항5
 # 문제화면5 : frame7 - q5
@@ -310,7 +310,7 @@ btn_next = Button(frame7, image=img_next,borderwidth=1,overrelief='solid',comman
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame7, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame6)])
+btn_before = Button(frame7, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[OpenFrame(frame6)])
 btn_before.place(x=100,y=530)
 ############################################################문항6
 # 문제화면6 : frame8 - q6
@@ -341,7 +341,7 @@ btn_next = Button(frame8, image=img_next,borderwidth=1,overrelief='solid',comman
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame8, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame7)])
+btn_before = Button(frame8, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[OpenFrame(frame7)])
 btn_before.place(x=100,y=530)
 ############################################################문항7
 # 문제화면7 : frame9 - q7
@@ -372,7 +372,7 @@ btn_next = Button(frame9, image=img_next,borderwidth=1,overrelief='solid',comman
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame9, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame8)])
+btn_before = Button(frame9, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[OpenFrame(frame8)])
 btn_before.place(x=100,y=530)
 ############################################################문항8
 # 문제화면8 : frame10 - q8
@@ -403,7 +403,7 @@ btn_next = Button(frame10, image=img_next,borderwidth=1,overrelief='solid',comma
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame10, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame9)])
+btn_before = Button(frame10, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[OpenFrame(frame9)])
 btn_before.place(x=100,y=530)
 ############################################################문항9
 # 문제화면9 : frame11 - q9
@@ -434,7 +434,7 @@ btn_next = Button(frame11, image=img_next,borderwidth=1,overrelief='solid',comma
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame11, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame10)])
+btn_before = Button(frame11, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[OpenFrame(frame10)])
 btn_before.place(x=100,y=530)
 ############################################################문항10
 # 문제화면10 : frame12 - q10
@@ -465,7 +465,7 @@ btn_next = Button(frame12, image=img_next,borderwidth=1,overrelief='solid',comma
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame12, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame11)])
+btn_before = Button(frame12, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[OpenFrame(frame11)])
 btn_before.place(x=100,y=530)
 ############################################################문항11
 # 문제화면11 : frame13 - q11
@@ -496,7 +496,7 @@ btn_next = Button(frame13, image=img_next,borderwidth=1,overrelief='solid',comma
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame13, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame12)])
+btn_before = Button(frame13, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[OpenFrame(frame12)])
 btn_before.place(x=100,y=530)
 ############################################################문항12
 # 문제화면12 : frame14 - q12
@@ -528,7 +528,7 @@ btn_summit = Button(frame14, image=img_summit,borderwidth=1,overrelief='solid',\
 btn_summit.place(x=270,y=480)
 
 # 이전문항 버튼
-btn_before = Button(frame14, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame13)])
+btn_before = Button(frame14, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[OpenFrame(frame13)])
 btn_before.place(x=100,y=530)
 ############################################################결과보기
 # 결과화면 : frame15
@@ -563,7 +563,7 @@ canvas16.pack()
 canvas16.create_image(250,335,image=img_f16)
 
 # 다시하기 버튼
-btn_restart= Button(frame16, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame16, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[OpenFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
@@ -585,7 +585,7 @@ canvas17.pack()
 canvas17.create_image(250,335,image=img_f17)
 
 # 다시하기 버튼
-btn_restart= Button(frame17, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame17, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[OpenFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
@@ -607,7 +607,7 @@ canvas18.pack()
 canvas18.create_image(250,335,image=img_f18)
 
 # 다시하기 버튼
-btn_restart= Button(frame18, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame18, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[OpenFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
@@ -629,7 +629,7 @@ canvas19.pack()
 canvas19.create_image(250,335,image=img_f19)
 
 # 다시하기 버튼
-btn_restart= Button(frame19, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame19, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[OpenFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
@@ -651,7 +651,7 @@ canvas20.pack()
 canvas20.create_image(250,335,image=img_f20)
 
 # 다시하기 버튼
-btn_restart= Button(frame20, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame20, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[OpenFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
@@ -673,7 +673,7 @@ canvas21.pack()
 canvas21.create_image(250,335,image=img_f21)
 
 # 다시하기 버튼
-btn_restart= Button(frame21, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame21, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[OpenFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
@@ -695,7 +695,7 @@ canvas22.pack()
 canvas22.create_image(250,335,image=img_f22)
 
 # 다시하기 버튼
-btn_restart= Button(frame22, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame22, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[OpenFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
@@ -717,7 +717,7 @@ canvas23.pack()
 canvas23.create_image(250,335,image=img_f23)
 
 # 다시하기 버튼
-btn_restart= Button(frame23, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame23, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[OpenFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
@@ -739,7 +739,7 @@ canvas24.pack()
 canvas24.create_image(250,335,image=img_f24)
 
 # 다시하기 버튼
-btn_restart= Button(frame24, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame24, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[OpenFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
@@ -761,7 +761,7 @@ canvas25.pack()
 canvas25.create_image(250,335,image=img_f25)
 
 # 다시하기 버튼
-btn_restart= Button(frame25, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame25, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[OpenFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
@@ -783,7 +783,7 @@ canvas26.pack()
 canvas26.create_image(250,335,image=img_f26)
 
 # 다시하기 버튼
-btn_restart= Button(frame26, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame26, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[OpenFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
@@ -805,7 +805,7 @@ canvas27.pack()
 canvas27.create_image(250,335,image=img_f27)
 
 # 다시하기 버튼
-btn_restart= Button(frame27, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame27, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[OpenFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
@@ -827,7 +827,7 @@ canvas28.pack()
 canvas28.create_image(250,335,image=img_f28)
 
 # 다시하기 버튼
-btn_restart= Button(frame28, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame28, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[OpenFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
@@ -849,7 +849,7 @@ canvas29.pack()
 canvas29.create_image(250,335,image=img_f29)
 
 # 다시하기 버튼
-btn_restart= Button(frame29, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame29, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[OpenFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
@@ -871,7 +871,7 @@ canvas30.pack()
 canvas30.create_image(250,335,image=img_f30)
 
 # 다시하기 버튼
-btn_restart= Button(frame30, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame30, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[OpenFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
@@ -893,7 +893,7 @@ canvas31.pack()
 canvas31.create_image(250,335,image=img_f31)
 
 # 다시하기 버튼
-btn_restart= Button(frame31, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame31, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[OpenFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
@@ -905,5 +905,5 @@ btn_web = Button(frame31,image=img_web,borderwidth=1,overrelief='solid',\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-esfp'),close()])
 btn_web.place(x=239,y=340)
 #############################################################
-openFrame(frame1)
+OpenFrame(frame1)
 window.mainloop()
