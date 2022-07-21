@@ -138,7 +138,7 @@ canvas1.pack()
 canvas1.create_image(250,335,image=img_startpage)
 
 # 시작하기 버튼
-btn_start = Button(frame1, image=img_click,borderwidth=1,command= lambda: [openFrame(frame2)])
+btn_start = Button(frame1, image=img_click,borderwidth=1,overrelief='solid',command= lambda: [openFrame(frame2)])
 btn_start.place(x=120,y=480)
 ############################################################
 # 설명화면 : frame2
@@ -155,7 +155,7 @@ canvas2.pack()
 canvas2.create_image(250,335,image=img_explainpage)
 
 # 넘아가기 버튼
-btn_pass = Button(frame2, image=img_pass,borderwidth=1, command= lambda: [openFrame(frame3)])
+btn_pass = Button(frame2, image=img_pass,borderwidth=1,overrelief='solid',command= lambda: [openFrame(frame3)])
 btn_pass.place(x=135,y=480)
 ############################################################문항1
 # 문제화면1 : frame3 - q1 (이전문항 - 메세지창 : 이전 문항이 없습니다.)
@@ -176,17 +176,17 @@ canvas3.create_image(250,335,image=img_q1)
 
 # 문항1-체크하는 라디오 버튼 생성
 q1 = IntVar()
-rd1 = Radiobutton(frame3,image=img_q1_1,variable=q1,value=2,indicatoron=False) # E성향 - value : 2
-rd1.place(x=40,y=300)
-rd2 = Radiobutton(frame3,image=img_q1_2,variable=q1,value=1,indicatoron=False) # I성향 - value : 1
-rd2.place(x=40,y=400)
+rd1 = Radiobutton(frame3,image=img_q1_1,variable=q1,value=2,indicatoron=False,overrelief='solid',selectcolor='red') # E성향 - value : 2
+rd1.place(x=46,y=300)
+rd2 = Radiobutton(frame3,image=img_q1_2,variable=q1,value=1,indicatoron=False,overrelief='solid',selectcolor='red') # I성향 - value : 1
+rd2.place(x=46,y=400)
 
 # 다음문항 버튼
-btn_next = Button(frame3, image=img_next,borderwidth=1,command= lambda: [NextBtn(q1,frame4)])
+btn_next = Button(frame3, image=img_next,borderwidth=1,overrelief='solid',command= lambda: [NextBtn(q1,frame4)])
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame3, image=img_before,borderwidth=1,command= NoBeforeBtn)
+btn_before = Button(frame3, image=img_before,borderwidth=1,overrelief='solid',command= NoBeforeBtn)
 btn_before.place(x=100,y=530)
 ############################################################문항2
 # 문제화면2 : frame4 - q2 
@@ -207,17 +207,17 @@ canvas4.create_image(250,335,image=img_q2)
 
 # 문항2-체크하는 라디오 버튼 생성
 q2 = IntVar()
-rd3 = Radiobutton(frame4,image=img_q2_1,variable=q2,value=7,indicatoron=False) # J성향 - value : 7
-rd3.place(x=40,y=300)
-rd4 = Radiobutton(frame4,image=img_q2_2,variable=q2,value=8,indicatoron=False) # P성향 - value : 8
-rd4.place(x=40,y=400)
+rd3 = Radiobutton(frame4,image=img_q2_1,variable=q2,value=7,indicatoron=False,overrelief='solid',selectcolor='red') # J성향 - value : 7
+rd3.place(x=46,y=300)
+rd4 = Radiobutton(frame4,image=img_q2_2,variable=q2,value=8,indicatoron=False,overrelief='solid',selectcolor='red') # P성향 - value : 8
+rd4.place(x=46,y=400)
 
 # 다음문항 버튼
-btn_next = Button(frame4, image=img_next,borderwidth=1,command= lambda: [NextBtn(q2,frame5)])
+btn_next = Button(frame4, image=img_next,borderwidth=1,overrelief='solid',command= lambda: [NextBtn(q2,frame5)])
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame4, image=img_before,borderwidth=1,command= lambda:[openFrame(frame3)])
+btn_before = Button(frame4, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame3)])
 btn_before.place(x=100,y=530)
 ############################################################문항3
 # 문제화면3 : frame5 - q3
@@ -238,17 +238,17 @@ canvas5.create_image(250,335,image=img_q3)
 
 # 문항3-체크하는 라디오 버튼 생성
 q3 = IntVar()
-rd5 = Radiobutton(frame5,image=img_q3_1,variable=q3,value=5,indicatoron=False) # T성향 - value : 5
-rd5.place(x=40,y=300)
-rd6 = Radiobutton(frame5,image=img_q3_2,variable=q3,value=6,indicatoron=False) # F성향 - value : 6
-rd6.place(x=40,y=400)
+rd5 = Radiobutton(frame5,image=img_q3_1,variable=q3,value=5,indicatoron=False,overrelief='solid',selectcolor='red') # T성향 - value : 5
+rd5.place(x=46,y=300)
+rd6 = Radiobutton(frame5,image=img_q3_2,variable=q3,value=6,indicatoron=False,overrelief='solid',selectcolor='red') # F성향 - value : 6
+rd6.place(x=46,y=400)
 
 # 다음문항 버튼
-btn_next = Button(frame5, image=img_next,borderwidth=1,command= lambda: [NextBtn(q3,frame6)])
+btn_next = Button(frame5, image=img_next,borderwidth=1,overrelief='solid',command= lambda: [NextBtn(q3,frame6)])
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame5, image=img_before,borderwidth=1,command= lambda:[openFrame(frame4)])
+btn_before = Button(frame5, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame4)])
 btn_before.place(x=100,y=530)
 ############################################################문항4
 # 문제화면4 : frame6 - q4
@@ -269,17 +269,17 @@ canvas6.create_image(250,335,image=img_q4)
 
 # 문항4-체크하는 라디오 버튼 생성
 q4 = IntVar()
-rd7 = Radiobutton(frame6,image=img_q4_1,variable=q4,value=4,indicatoron=False) # N성향 - value : 4
-rd7.place(x=40,y=300)
-rd8 = Radiobutton(frame6,image=img_q4_2,variable=q4,value=3,indicatoron=False) # S성향 - value : 3
-rd8.place(x=40,y=400)
+rd7 = Radiobutton(frame6,image=img_q4_1,variable=q4,value=4,indicatoron=False,overrelief='solid',selectcolor='red') # N성향 - value : 4
+rd7.place(x=46,y=300)
+rd8 = Radiobutton(frame6,image=img_q4_2,variable=q4,value=3,indicatoron=False,overrelief='solid',selectcolor='red') # S성향 - value : 3
+rd8.place(x=46,y=400)
 
 # 다음문항 버튼
-btn_next = Button(frame6, image=img_next,borderwidth=1,command= lambda: [NextBtn(q4,frame7)])
+btn_next = Button(frame6, image=img_next,borderwidth=1,overrelief='solid',command= lambda: [NextBtn(q4,frame7)])
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame6, image=img_before,borderwidth=1,command= lambda:[openFrame(frame5)])
+btn_before = Button(frame6, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame5)])
 btn_before.place(x=100,y=530)
 ############################################################문항5
 # 문제화면5 : frame7 - q5
@@ -300,17 +300,17 @@ canvas7.create_image(250,335,image=img_q5)
 
 # 문항5-체크하는 라디오 버튼 생성
 q5 = IntVar()
-rd9 = Radiobutton(frame7,image=img_q5_1,variable=q5,value=8,indicatoron=False) # P성향 - value : 8
-rd9.place(x=40,y=300)
-rd10 = Radiobutton(frame7,image=img_q5_2,variable=q5,value=7,indicatoron=False) # J성향 - value : 7
-rd10.place(x=40,y=400)
+rd9 = Radiobutton(frame7,image=img_q5_1,variable=q5,value=8,indicatoron=False,overrelief='solid',selectcolor='red') # P성향 - value : 8
+rd9.place(x=46,y=300)
+rd10 = Radiobutton(frame7,image=img_q5_2,variable=q5,value=7,indicatoron=False,overrelief='solid',selectcolor='red') # J성향 - value : 7
+rd10.place(x=46,y=400)
 
 # 다음문항 버튼
-btn_next = Button(frame7, image=img_next,borderwidth=1,command= lambda: [NextBtn(q5,frame8)])
+btn_next = Button(frame7, image=img_next,borderwidth=1,overrelief='solid',command= lambda: [NextBtn(q5,frame8)])
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame7, image=img_before,borderwidth=1,command= lambda:[openFrame(frame6)])
+btn_before = Button(frame7, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame6)])
 btn_before.place(x=100,y=530)
 ############################################################문항6
 # 문제화면6 : frame8 - q6
@@ -331,17 +331,17 @@ canvas8.create_image(250,335,image=img_q6)
 
 # 문항6-체크하는 라디오 버튼 생성
 q6 = IntVar()
-rd11 = Radiobutton(frame8,image=img_q6_1,variable=q6,value=1,indicatoron=False) # I성향 - value : 1
-rd11.place(x=40,y=300)
-rd12 = Radiobutton(frame8,image=img_q6_2,variable=q6,value=2,indicatoron=False) # E성향 - value : 2
-rd12.place(x=40,y=400)
+rd11 = Radiobutton(frame8,image=img_q6_1,variable=q6,value=1,indicatoron=False,overrelief='solid',selectcolor='red') # I성향 - value : 1
+rd11.place(x=46,y=300)
+rd12 = Radiobutton(frame8,image=img_q6_2,variable=q6,value=2,indicatoron=False,overrelief='solid',selectcolor='red') # E성향 - value : 2
+rd12.place(x=46,y=400)
 
 # 다음문항 버튼
-btn_next = Button(frame8, image=img_next,borderwidth=1,command= lambda: [NextBtn(q6,frame9)])
+btn_next = Button(frame8, image=img_next,borderwidth=1,overrelief='solid',command= lambda: [NextBtn(q6,frame9)])
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame8, image=img_before,borderwidth=1,command= lambda:[openFrame(frame7)])
+btn_before = Button(frame8, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame7)])
 btn_before.place(x=100,y=530)
 ############################################################문항7
 # 문제화면7 : frame9 - q7
@@ -362,17 +362,17 @@ canvas9.create_image(250,335,image=img_q7)
 
 # 문항7-체크하는 라디오 버튼 생성
 q7 = IntVar()
-rd13 = Radiobutton(frame9,image=img_q7_1,variable=q7,value=3,indicatoron=False) # S성향 - value : 3
-rd13.place(x=40,y=300)
-rd14 = Radiobutton(frame9,image=img_q7_2,variable=q7,value=4,indicatoron=False) # N성향 - value : 4
-rd14.place(x=40,y=400)
+rd13 = Radiobutton(frame9,image=img_q7_1,variable=q7,value=3,indicatoron=False,overrelief='solid',selectcolor='red') # S성향 - value : 3
+rd13.place(x=46,y=300)
+rd14 = Radiobutton(frame9,image=img_q7_2,variable=q7,value=4,indicatoron=False,overrelief='solid',selectcolor='red') # N성향 - value : 4
+rd14.place(x=46,y=400)
 
 # 다음문항 버튼
-btn_next = Button(frame9, image=img_next,borderwidth=1,command= lambda: [NextBtn(q7,frame10)])
+btn_next = Button(frame9, image=img_next,borderwidth=1,overrelief='solid',command= lambda: [NextBtn(q7,frame10)])
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame9, image=img_before,borderwidth=1,command= lambda:[openFrame(frame8)])
+btn_before = Button(frame9, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame8)])
 btn_before.place(x=100,y=530)
 ############################################################문항8
 # 문제화면8 : frame10 - q8
@@ -393,17 +393,17 @@ canvas10.create_image(250,335,image=img_q8)
 
 # 문항8-체크하는 라디오 버튼 생성
 q8 = IntVar()
-rd15 = Radiobutton(frame10,image=img_q8_1,variable=q8,value=6,indicatoron=False) # F성향 - value : 6
-rd15.place(x=40,y=300)
-rd16 = Radiobutton(frame10,image=img_q8_2,variable=q8,value=5,indicatoron=False) # T성향 - value : 5
-rd16.place(x=40,y=400)
+rd15 = Radiobutton(frame10,image=img_q8_1,variable=q8,value=6,indicatoron=False,overrelief='solid',selectcolor='red') # F성향 - value : 6
+rd15.place(x=46,y=300)
+rd16 = Radiobutton(frame10,image=img_q8_2,variable=q8,value=5,indicatoron=False,overrelief='solid',selectcolor='red') # T성향 - value : 5
+rd16.place(x=46,y=400)
 
 # 다음문항 버튼
-btn_next = Button(frame10, image=img_next,borderwidth=1,command= lambda: [NextBtn(q8,frame11)])
+btn_next = Button(frame10, image=img_next,borderwidth=1,overrelief='solid',command= lambda: [NextBtn(q8,frame11)])
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame10, image=img_before,borderwidth=1,command= lambda:[openFrame(frame9)])
+btn_before = Button(frame10, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame9)])
 btn_before.place(x=100,y=530)
 ############################################################문항9
 # 문제화면9 : frame11 - q9
@@ -424,17 +424,17 @@ canvas11.create_image(250,335,image=img_q9)
 
 # 문항9-체크하는 라디오 버튼 생성
 q9 = IntVar()
-rd17 = Radiobutton(frame11,image=img_q9_1,variable=q9,value=7,indicatoron=False) # J성향 - value : 7
-rd17.place(x=40,y=300)
-rd18 = Radiobutton(frame11,image=img_q9_2,variable=q9,value=8,indicatoron=False) # P성향 - value : 8
-rd18.place(x=40,y=430) # 좀 더 떨으뜨리기.
+rd17 = Radiobutton(frame11,image=img_q9_1,variable=q9,value=7,indicatoron=False,overrelief='solid',selectcolor='red') # J성향 - value : 7
+rd17.place(x=46,y=300)
+rd18 = Radiobutton(frame11,image=img_q9_2,variable=q9,value=8,indicatoron=False,overrelief='solid',selectcolor='red') # P성향 - value : 8
+rd18.place(x=46,y=430) # 좀 더 떨으뜨리기.
 
 # 다음문항 버튼
-btn_next = Button(frame11, image=img_next,borderwidth=1,command= lambda: [NextBtn(q9,frame12)])
+btn_next = Button(frame11, image=img_next,borderwidth=1,overrelief='solid',command= lambda: [NextBtn(q9,frame12)])
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame11, image=img_before,borderwidth=1,command= lambda:[openFrame(frame10)])
+btn_before = Button(frame11, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame10)])
 btn_before.place(x=100,y=530)
 ############################################################문항10
 # 문제화면10 : frame12 - q10
@@ -455,17 +455,17 @@ canvas12.create_image(250,335,image=img_q10)
 
 # 문항10-체크하는 라디오 버튼 생성
 q10 = IntVar()
-rd19 = Radiobutton(frame12,image=img_q10_1,variable=q10,value=6,indicatoron=False) # F성향 - value : 6
-rd19.place(x=40,y=300)
-rd20 = Radiobutton(frame12,image=img_q10_2,variable=q10,value=5,indicatoron=False) # T성향 - value : 5
-rd20.place(x=40,y=400) # 좀 더 떨으뜨리기.
+rd19 = Radiobutton(frame12,image=img_q10_1,variable=q10,value=6,indicatoron=False,overrelief='solid',selectcolor='red') # F성향 - value : 6
+rd19.place(x=46,y=300)
+rd20 = Radiobutton(frame12,image=img_q10_2,variable=q10,value=5,indicatoron=False,overrelief='solid',selectcolor='red') # T성향 - value : 5
+rd20.place(x=46,y=400) # 좀 더 떨으뜨리기.
 
 # 다음문항 버튼
-btn_next = Button(frame12, image=img_next,borderwidth=1,command= lambda: [NextBtn(q10,frame13)])
+btn_next = Button(frame12, image=img_next,borderwidth=1,overrelief='solid',command= lambda: [NextBtn(q10,frame13)])
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame12, image=img_before,borderwidth=1,command= lambda:[openFrame(frame11)])
+btn_before = Button(frame12, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame11)])
 btn_before.place(x=100,y=530)
 ############################################################문항11
 # 문제화면11 : frame13 - q11
@@ -486,17 +486,17 @@ canvas13.create_image(250,335,image=img_q11)
 
 # 문항11-체크하는 라디오 버튼 생성
 q11 = IntVar()
-rd21 = Radiobutton(frame13,image=img_q11_1,variable=q11,value=4,indicatoron=False) # N성향 - value : 4
-rd21.place(x=40,y=300)
-rd22 = Radiobutton(frame13,image=img_q11_2,variable=q11,value=3,indicatoron=False) # S성향 - value : 3
-rd22.place(x=40,y=400)
+rd21 = Radiobutton(frame13,image=img_q11_1,variable=q11,value=4,indicatoron=False,overrelief='solid',selectcolor='red') # N성향 - value : 4
+rd21.place(x=46,y=300)
+rd22 = Radiobutton(frame13,image=img_q11_2,variable=q11,value=3,indicatoron=False,overrelief='solid',selectcolor='red') # S성향 - value : 3
+rd22.place(x=46,y=400)
 
 # 다음문항 버튼
-btn_next = Button(frame13, image=img_next,borderwidth=1,command= lambda: [NextBtn(q11,frame14)])
+btn_next = Button(frame13, image=img_next,borderwidth=1,overrelief='solid',command= lambda: [NextBtn(q11,frame14)])
 btn_next.place(x=270,y=530)
 
 # 이전문항 버튼
-btn_before = Button(frame13, image=img_before,borderwidth=1,command= lambda:[openFrame(frame12)])
+btn_before = Button(frame13, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame12)])
 btn_before.place(x=100,y=530)
 ############################################################문항12
 # 문제화면12 : frame14 - q12
@@ -517,18 +517,18 @@ canvas14.create_image(250,335,image=img_q12)
 
 # 문항12-체크하는 라디오 버튼 생성
 q12 = IntVar()
-rd23 = Radiobutton(frame14,image=img_q12_1,variable=q12,value=2,indicatoron=False) # E성향 - value : 2
-rd23.place(x=40,y=300)
-rd24 = Radiobutton(frame14,image=img_q12_2,variable=q12,value=1,indicatoron=False) # I성향 - value : 1
-rd24.place(x=40,y=400)
+rd23 = Radiobutton(frame14,image=img_q12_1,variable=q12,value=2,indicatoron=False,overrelief='solid',selectcolor='red') # E성향 - value : 2
+rd23.place(x=46,y=300)
+rd24 = Radiobutton(frame14,image=img_q12_2,variable=q12,value=1,indicatoron=False,overrelief='solid',selectcolor='red') # I성향 - value : 1
+rd24.place(x=46,y=400)
 
 # 제출하기 버튼
-btn_summit = Button(frame14, image=img_summit,borderwidth=1,\
+btn_summit = Button(frame14, image=img_summit,borderwidth=1,overrelief='solid',\
                     command= lambda:[SummitBtn(q12,frame15)])
 btn_summit.place(x=270,y=480)
 
 # 이전문항 버튼
-btn_before = Button(frame14, image=img_before,borderwidth=1,command= lambda:[openFrame(frame13)])
+btn_before = Button(frame14, image=img_before,borderwidth=1,overrelief='solid',command= lambda:[openFrame(frame13)])
 btn_before.place(x=100,y=530)
 ############################################################결과보기
 # 결과화면 : frame15
@@ -545,7 +545,7 @@ canvas15.pack()
 canvas15.create_image(250,335,image=img_resultpage)
 
 # 결과보기 버튼
-btn_result = Button(frame15, image= img_result,borderwidth=1,command= ResultBtn)
+btn_result = Button(frame15, image= img_result,borderwidth=1,overrelief='solid',command= ResultBtn)
 btn_result.place(x=145,y=285)
 #############################################################
 q_list = [q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12]
@@ -563,15 +563,15 @@ canvas16.pack()
 canvas16.create_image(250,335,image=img_f16)
 
 # 다시하기 버튼
-btn_restart= Button(frame16, image=img_restart,borderwidth=1,command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame16, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
-btn_end = Button(frame16, image=img_end,borderwidth=1,command= close)
+btn_end = Button(frame16, image=img_end,borderwidth=1,overrelief='solid',command= close)
 btn_end.place(x=320,y=532)
 
 # 링크 연결 버튼 및 종료
-btn_web = Button(frame16,image=img_web,borderwidth=1,\
+btn_web = Button(frame16,image=img_web,borderwidth=1,overrelief='solid',\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-intj'),close()])
 btn_web.place(x=230,y=390)
 #############################################################1458: #INTP-논리술사/frame17
@@ -585,15 +585,15 @@ canvas17.pack()
 canvas17.create_image(250,335,image=img_f17)
 
 # 다시하기 버튼
-btn_restart= Button(frame17, image=img_restart,borderwidth=1,command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame17, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
-btn_end = Button(frame17, image=img_end,borderwidth=1,command= close)
+btn_end = Button(frame17, image=img_end,borderwidth=1,overrelief='solid',command= close)
 btn_end.place(x=320,y=532)
 
 # 링크 연결 버튼 및 종료
-btn_web = Button(frame17,image=img_web,borderwidth=1,\
+btn_web = Button(frame17,image=img_web,borderwidth=1,overrelief='solid',\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-intp'),close()])
 btn_web.place(x=230,y=390)
 ############################################################# 2457: #ENTJ-통솔자/fram18
@@ -607,15 +607,15 @@ canvas18.pack()
 canvas18.create_image(250,335,image=img_f18)
 
 # 다시하기 버튼
-btn_restart= Button(frame18, image=img_restart,borderwidth=1,command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame18, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
-btn_end = Button(frame18, image=img_end,borderwidth=1,command= close)
+btn_end = Button(frame18, image=img_end,borderwidth=1,overrelief='solid',command= close)
 btn_end.place(x=320,y=532)
 
 # 링크 연결 버튼 및 종료
-btn_web = Button(frame18,image=img_web,borderwidth=1,\
+btn_web = Button(frame18,image=img_web,borderwidth=1,overrelief='solid',\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-entj'),close()])
 btn_web.place(x=242,y=390)
 ############################################################# 2458: #ENTP-변론가/frame19
@@ -629,15 +629,15 @@ canvas19.pack()
 canvas19.create_image(250,335,image=img_f19)
 
 # 다시하기 버튼
-btn_restart= Button(frame19, image=img_restart,borderwidth=1,command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame19, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
-btn_end = Button(frame19, image=img_end,borderwidth=1,command= close)
+btn_end = Button(frame19, image=img_end,borderwidth=1,overrelief='solid',command= close)
 btn_end.place(x=320,y=532)
 
 # 링크 연결 버튼 및 종료
-btn_web = Button(frame19,image=img_web,borderwidth=1,\
+btn_web = Button(frame19,image=img_web,borderwidth=1,overrelief='solid',\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-entp'),close()])
 btn_web.place(x=242,y=363)
 ############################################################# 1467: #INFJ-옹호자/frame20
@@ -651,15 +651,15 @@ canvas20.pack()
 canvas20.create_image(250,335,image=img_f20)
 
 # 다시하기 버튼
-btn_restart= Button(frame20, image=img_restart,borderwidth=1,command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame20, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
-btn_end = Button(frame20, image=img_end,borderwidth=1,command= close)
+btn_end = Button(frame20, image=img_end,borderwidth=1,overrelief='solid',command= close)
 btn_end.place(x=320,y=532)
 
 # 링크 연결 버튼 및 종료
-btn_web = Button(frame20,image=img_web,borderwidth=1,\
+btn_web = Button(frame20,image=img_web,borderwidth=1,overrelief='solid',\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-infj'),close()])
 btn_web.place(x=242,y=390)
 #############################################################1468: #INFP-중재자/frame21
@@ -673,15 +673,15 @@ canvas21.pack()
 canvas21.create_image(250,335,image=img_f21)
 
 # 다시하기 버튼
-btn_restart= Button(frame21, image=img_restart,borderwidth=1,command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame21, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
-btn_end = Button(frame21, image=img_end,borderwidth=1,command= close)
+btn_end = Button(frame21, image=img_end,borderwidth=1,overrelief='solid',command= close)
 btn_end.place(x=320,y=532)
 
 # 링크 연결 버튼 및 종료
-btn_web = Button(frame21,image=img_web,borderwidth=1,\
+btn_web = Button(frame21,image=img_web,borderwidth=1,overrelief='solid',\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-infp'),close()])
 btn_web.place(x=230,y=390)
 #############################################################2467: #ENFJ-선도자/frame22
@@ -695,15 +695,15 @@ canvas22.pack()
 canvas22.create_image(250,335,image=img_f22)
 
 # 다시하기 버튼
-btn_restart= Button(frame22, image=img_restart,borderwidth=1,command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame22, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
-btn_end = Button(frame22, image=img_end,borderwidth=1,command= close)
+btn_end = Button(frame22, image=img_end,borderwidth=1,overrelief='solid',command= close)
 btn_end.place(x=320,y=532)
 
 # 링크 연결 버튼 및 종료
-btn_web = Button(frame22,image=img_web,borderwidth=1,\
+btn_web = Button(frame22,image=img_web,borderwidth=1,overrelief='solid',\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-enfj'),close()])
 btn_web.place(x=230,y=390)
 #############################################################2468: #ENFP-활동가/frame23
@@ -717,15 +717,15 @@ canvas23.pack()
 canvas23.create_image(250,335,image=img_f23)
 
 # 다시하기 버튼
-btn_restart= Button(frame23, image=img_restart,borderwidth=1,command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame23, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
-btn_end = Button(frame23, image=img_end,borderwidth=1,command= close)
+btn_end = Button(frame23, image=img_end,borderwidth=1,overrelief='solid',command= close)
 btn_end.place(x=320,y=532)
 
 # 링크 연결 버튼 및 종료
-btn_web = Button(frame23,image=img_web,borderwidth=1,\
+btn_web = Button(frame23,image=img_web,borderwidth=1,overrelief='solid',\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-enfp'),close()])
 btn_web.place(x=242,y=350)
 #############################################################1357: #ISTJ-현실주의자/frame24
@@ -739,15 +739,15 @@ canvas24.pack()
 canvas24.create_image(250,335,image=img_f24)
 
 # 다시하기 버튼
-btn_restart= Button(frame24, image=img_restart,borderwidth=1,command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame24, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
-btn_end = Button(frame24, image=img_end,borderwidth=1,command= close)
+btn_end = Button(frame24, image=img_end,borderwidth=1,overrelief='solid',command= close)
 btn_end.place(x=320,y=532)
 
 # 링크 연결 버튼 및 종료
-btn_web = Button(frame24,image=img_web,borderwidth=1,\
+btn_web = Button(frame24,image=img_web,borderwidth=1,overrelief='solid',\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-istj'),close()])
 btn_web.place(x=242,y=385)
 #############################################################1367: #ISFJ-수호자/frame25
@@ -761,15 +761,15 @@ canvas25.pack()
 canvas25.create_image(250,335,image=img_f25)
 
 # 다시하기 버튼
-btn_restart= Button(frame25, image=img_restart,borderwidth=1,command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame25, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
-btn_end = Button(frame25, image=img_end,borderwidth=1,command= close)
+btn_end = Button(frame25, image=img_end,borderwidth=1,overrelief='solid',command= close)
 btn_end.place(x=320,y=532)
 
 # 링크 연결 버튼 및 종료
-btn_web = Button(frame25,image=img_web,borderwidth=1,\
+btn_web = Button(frame25,image=img_web,borderwidth=1,overrelief='solid',\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-isfj'),close()])
 btn_web.place(x=242,y=380)
 #############################################################2357: #ESTJ-경영자/frame26
@@ -783,15 +783,15 @@ canvas26.pack()
 canvas26.create_image(250,335,image=img_f26)
 
 # 다시하기 버튼
-btn_restart= Button(frame26, image=img_restart,borderwidth=1,command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame26, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
-btn_end = Button(frame26, image=img_end,borderwidth=1,command= close)
+btn_end = Button(frame26, image=img_end,borderwidth=1,overrelief='solid',command= close)
 btn_end.place(x=320,y=532)
 
 # 링크 연결 버튼 및 종료
-btn_web = Button(frame26,image=img_web,borderwidth=1,\
+btn_web = Button(frame26,image=img_web,borderwidth=1,overrelief='solid',\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-estj'),close()])
 btn_web.place(x=242,y=380)
 #############################################################2367: #ESFJ-집정관/frame27
@@ -805,15 +805,15 @@ canvas27.pack()
 canvas27.create_image(250,335,image=img_f27)
 
 # 다시하기 버튼
-btn_restart= Button(frame27, image=img_restart,borderwidth=1,command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame27, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
-btn_end = Button(frame27, image=img_end,borderwidth=1,command= close)
+btn_end = Button(frame27, image=img_end,borderwidth=1,overrelief='solid',command= close)
 btn_end.place(x=320,y=532)
 
 # 링크 연결 버튼 및 종료
-btn_web = Button(frame27,image=img_web,borderwidth=1,\
+btn_web = Button(frame27,image=img_web,borderwidth=1,overrelief='solid',\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-esfj'),close()])
 btn_web.place(x=242,y=340)
 #############################################################1358: #ISTP-장인/frame28
@@ -827,15 +827,15 @@ canvas28.pack()
 canvas28.create_image(250,335,image=img_f28)
 
 # 다시하기 버튼
-btn_restart= Button(frame28, image=img_restart,borderwidth=1,command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame28, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
-btn_end = Button(frame28, image=img_end,borderwidth=1,command= close)
+btn_end = Button(frame28, image=img_end,borderwidth=1,overrelief='solid',command= close)
 btn_end.place(x=320,y=532)
 
 # 링크 연결 버튼 및 종료
-btn_web = Button(frame28,image=img_web,borderwidth=1,\
+btn_web = Button(frame28,image=img_web,borderwidth=1,overrelief='solid',\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-istp'),close()])
 btn_web.place(x=239,y=375)
 #############################################################1368: #ISFP-모험가/frame29
@@ -849,15 +849,15 @@ canvas29.pack()
 canvas29.create_image(250,335,image=img_f29)
 
 # 다시하기 버튼
-btn_restart= Button(frame29, image=img_restart,borderwidth=1,command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame29, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
-btn_end = Button(frame29, image=img_end,borderwidth=1,command= close)
+btn_end = Button(frame29, image=img_end,borderwidth=1,overrelief='solid',command= close)
 btn_end.place(x=320,y=532)
 
 # 링크 연결 버튼 및 종료
-btn_web = Button(frame29,image=img_web,borderwidth=1,\
+btn_web = Button(frame29,image=img_web,borderwidth=1,overrelief='solid',\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-isfp'),close()])
 btn_web.place(x=242,y=363)
 #############################################################2358: #ESTP-사업가/frame30
@@ -871,15 +871,15 @@ canvas30.pack()
 canvas30.create_image(250,335,image=img_f30)
 
 # 다시하기 버튼
-btn_restart= Button(frame30, image=img_restart,borderwidth=1,command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame30, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
-btn_end = Button(frame30, image=img_end,borderwidth=1,command= close)
+btn_end = Button(frame30, image=img_end,borderwidth=1,overrelief='solid',command= close)
 btn_end.place(x=320,y=532)
 
 # 링크 연결 버튼 및 종료
-btn_web = Button(frame30,image=img_web,borderwidth=1,\
+btn_web = Button(frame30,image=img_web,borderwidth=1,overrelief='solid',\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-estp'),close()])
 btn_web.place(x=238,y=375)
 #############################################################
@@ -893,15 +893,15 @@ canvas31.pack()
 canvas31.create_image(250,335,image=img_f31)
 
 # 다시하기 버튼
-btn_restart= Button(frame31, image=img_restart,borderwidth=1,command=lambda:[openFrame(frame1)])
+btn_restart= Button(frame31, image=img_restart,borderwidth=1,overrelief='solid',command=lambda:[openFrame(frame1)])
 btn_restart.place(x=100,y=530)
 
 # 종료하기 버튼
-btn_end = Button(frame31, image=img_end,borderwidth=1,command= close)
+btn_end = Button(frame31, image=img_end,borderwidth=1,overrelief='solid',command= close)
 btn_end.place(x=320,y=532)
 
 # 링크 연결 버튼 및 종료
-btn_web = Button(frame31,image=img_web,borderwidth=1,\
+btn_web = Button(frame31,image=img_web,borderwidth=1,overrelief='solid',\
     command= lambda:[web('https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-esfp'),close()])
 btn_web.place(x=239,y=340)
 #############################################################
