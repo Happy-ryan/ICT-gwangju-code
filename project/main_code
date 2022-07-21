@@ -26,9 +26,9 @@ def SubmmitBtn(q,frame): # 제출하기버튼의 이벤트-q1~q12.get()값을 �
             result_list = [i for i, x in enumerate(mbti_list) if x >= 2]
             result = sum([x * 10**(3-i) for i, x in enumerate(result_list)])
             OpenFrame(frame)
-            print(mbti_list)
-            print(result_list)
-            print(result)
+            print(mbti_list)  # 각 성향 선택 횟수 파악 리스트
+            print(result_list) # 3문제 중 2문제 이상 선택된 성향의 인덱스 출력
+            print(result) # result_list 네자리수로 만든, mbti 결과가 global result로 ResultBtn()에서 비교
 
 def ResultBtn():
     global result
